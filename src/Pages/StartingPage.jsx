@@ -3,12 +3,13 @@ import './StartingPageLooks.css'
 
 const StartingPage = () => {
   return (
-    <div class="background">
-      <div class="background">
-      <h1 class="titleText">Homework Calendar</h1>
-      <h2 class="titleText">A place where you can create a list of all your homework assignments!</h2>
-
-      <button class="logoutButton">logout</button>
+    <div>
+      <div className="background">
+        <div className="plainBackground">
+        <h1 className="titleText plainBackground">Homework Calendar</h1>
+        <h2 className="titleText">A place where you can create a list of all your homework assignments!</h2>
+        </div>
+      <button className="logoutButton">logout</button>
       </div>
     
     </div>
