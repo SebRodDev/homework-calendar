@@ -1,25 +1,9 @@
-@property --k {
-    syntax: '<number>';
-    initial-value: 0;
-    inherits: false;
-}
-
-@keyframes k { to { --k: 1}}
 
 .titleText {
     margin: auto;
     text-align: center;
     padding-top: 20px;
-    background: 
-		linear-gradient(90deg, 
-				hsl(calc(var(--k)*1turn), 95%, 65%), 
-				hsl(calc(var(--k)*1turn + 90deg), 95%, 65%)) text;
-	color: transparent;
-	font: 900 sans-serif;
-	filter: url(#f);
-	text-align: center;
-	text-transform: uppercase;
-	animation: k 4s linear infinite;
+    
 }
 
 .plainBackground {
@@ -31,11 +15,7 @@
 }
 
 .background {
-    background-image: url('./Images/Purdue\ Campus.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin: 0;
+    
 }
 
 .scrollingFeature {
