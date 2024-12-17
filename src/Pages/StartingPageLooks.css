@@ -6,12 +6,28 @@
     
 }
 
-.plainBackground {
-    background-color: black;
-    border-radius: 10px;
-    padding-right: 300px;
-    padding-left: 300px;
+.navLinks {
+    list-style: none;
+}
 
+.navLinks li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navLinks li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover {
+    color: blue;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
 }
 
 .background {
