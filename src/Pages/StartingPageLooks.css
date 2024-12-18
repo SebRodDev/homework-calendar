@@ -27,13 +27,27 @@
     padding: 0px 20px;
 }
 
-.navLinks li a {
+.navLinks li a { 
     transition: all 0.3s ease 0s;
+    background-color: white;
+    text-decoration: none;
+    font-size: 20px;
+    align-items: center;
+    width: 90px;
+    height: 60px;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
 }
 
 .navLinks li a:hover {
-    color: blue;
+    background-color: rgb(23, 58, 86);
+    color: white; /* This is simply just changing the menu items when they someone is hovering over them */
 }
+
+
 
 header {
     display: flex;
