@@ -47,8 +47,6 @@
     color: white; /* This is simply just changing the menu items when they someone is hovering over them */
 }
 
-
-
 header {
     display: flex;
     justify-content: flex-end;
