@@ -33,12 +33,12 @@
     text-decoration: none;
     font-size: 20px;
     align-items: center;
-    width: 90px;
-    height: 60px;
-    border-radius: 20px;
+    width: 90px; /* This honestly does not do much */
+    height: 60px; /* Same thing with this one since the bubble automatically adjusts to the length of the word */
+    border-radius: 20px; /* Makes the thing round */
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    padding: 10px;
+    font-weight: bold; /* Making the font bold */
+    padding: 10px; /* This is what is allowing the oval to have its actual shape */
     color: black;
 }
 
