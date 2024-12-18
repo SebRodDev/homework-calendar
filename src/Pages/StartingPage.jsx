@@ -4,7 +4,7 @@ import { Rainify } from 'rainify';
 
 const StartingPage = () => {
   return (
-    <div>
+    <div class="removingOverflow">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'></link>
       <div class="background">  {/* div for the background */}
       <Rainify /* Just the rain effects from the library that I imported */
@@ -36,6 +36,7 @@ const StartingPage = () => {
       </div> {/* closing div for the background */}
 
       <div class ="missionSection"> {/* div for the content at the bottom of the page */}
+      
         <h2>Our Mission</h2>
         <p>
           I want to provide a platform for students to be able to not have to scroll through their syllabi for when homework is due. For that reason 

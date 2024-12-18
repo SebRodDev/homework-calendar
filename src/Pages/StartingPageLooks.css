@@ -54,6 +54,10 @@ header {
     padding: 30px 10%;
 }
 
+.removingOverflow {
+    overflow: hidden;
+}
+
 .background {
     background-image: url("./Images/tien-phat-night-landscape.jpg");
     background-size: cover;
@@ -61,8 +65,8 @@ header {
     background-position: center;
     height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
+    
 }
 
 .logoutButton {
@@ -78,4 +82,24 @@ header {
     width: 150px;
     height: 50px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.missionSection {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5px;
+    background-color: rgb(14, 25, 27);
+    color: skyblue;
+}
+
+h2 {
+    text-align: center;
+    font-size: 100px;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
 }
