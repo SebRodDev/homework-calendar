@@ -102,4 +102,6 @@ h2 {
 p {
     text-align: center;
     font-size: 25px;
+    width: 100vw;
+    height: 50vh;
 }

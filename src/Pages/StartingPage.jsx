@@ -1,6 +1,10 @@
 import React from 'react';
-import './StartingPageLooks.css'
+import './StartingPageLooks.css';
 import { Rainify } from 'rainify';
+import {Routes, Route} from 'react-router-dom';
+import loginPage from './Login';
+import createAccountPage from './CreateAccountPage';
+import aboutPage from './AboutCreatorPage';
 
 const StartingPage = () => {
   return (
@@ -21,11 +25,17 @@ const StartingPage = () => {
       <header>
         <nav> 
         <ul class = "navLinks">
-        <li><a href = "#">Login</a></li>
-        <li><a href = "#">Create Account</a></li>
-        <li><a href = "#">About</a></li>
+        <li><a href = "/Login">Login</a></li>
+        <li><a href = "/createAccountPage">Create Account</a></li>
+        <li><a href = "/aboutPage">About</a></li>
         </ul>
         </nav>
+
+        <Routes>
+          <Route path="/Login" element={<loginPage />} />
+          <Route path="/createAccountPage" element={<createAccountPage />} />
+          <Route path="/aboutPage" element={<aboutPage />} />
+        </Routes>
         </header>
         
       <div> {/* opening div for the text */}
@@ -37,13 +47,15 @@ const StartingPage = () => {
 
       <div class ="missionSection"> {/* div for the content at the bottom of the page */}
       
-        <h2>Our Mission</h2>
+        <h2>Our Mission</h2> {/* Come back to this and work on this part later */}
         <p>
           I want to provide a platform for students to be able to not have to scroll through their syllabi for when homework is due. For that reason 
           I have created a platform where students can simply upload a copy of their class's syllabus and have a machine learning model make a calendar 
           for the student over the entire semester. Likewise, there is a feature for the student to clear their homework schedule entirely and start over 
           without having to create a new account.
         </p>
+
+        <img></img> 
       </div> {/* closing div for the content at the bottom of the page */}
     
     </div> /* Closing div for the over-arching div */
