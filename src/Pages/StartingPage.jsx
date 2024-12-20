@@ -1,10 +1,11 @@
 import React from 'react';
-import './StartingPageLooks.css';
+import './Styles/StartingPageLooks.css';
 import { Rainify } from 'rainify';
 import {Routes, Route} from 'react-router-dom';
-import loginPage from './Login';
-import createAccountPage from './CreateAccountPage';
-import aboutPage from './AboutCreatorPage';
+import Login from './Login';
+import CreateAccountPage from './CreateAccountPage';
+import AboutCreatorPage from './AboutCreatorPage';
+import { Link } from 'react-router-dom';
 
 const StartingPage = () => {
   return (
@@ -25,17 +26,18 @@ const StartingPage = () => {
       <header>
         <nav> 
         <ul class = "navLinks">
-        <li><a href = "/Login">Login</a></li>
-        <li><a href = "/createAccountPage">Create Account</a></li>
-        <li><a href = "/aboutPage">About</a></li>
+        <li><Link to = "/Login">Login</Link></li>
+        <li><Link to = "/createAccountPage">Create Account</Link></li>
+        <li><Link to = "/aboutPage">About</Link></li>
         </ul>
         </nav>
-
+        
         <Routes>
-          <Route path="/Login" element={<loginPage />} />
-          <Route path="/createAccountPage" element={<createAccountPage />} />
-          <Route path="/aboutPage" element={<aboutPage />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/createAccountPage" element={<CreateAccountPage />} />
+          <Route path="/aboutPage" element={<AboutCreatorPage />} />
         </Routes>
+
         </header>
         
       <div> {/* opening div for the text */}

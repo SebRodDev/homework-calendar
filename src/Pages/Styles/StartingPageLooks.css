@@ -59,7 +59,7 @@ header {
 }
 
 .background {
-    background-image: url("./Images/tien-phat-night-landscape.jpg");
+    background-image: url("/src/Pages/Images/tien-phat-night-landscape.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
