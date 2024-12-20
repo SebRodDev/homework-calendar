@@ -1,5 +1,5 @@
 h2 {
-    font-size: 20px;
+    font-size: 40px;
     text-align: center;
     color: black;
     font-family: 'Roboto', sans-serif;
@@ -7,27 +7,39 @@ h2 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 80px;
     text-align: center;
     color: black;
     font-family: 'Roboto', sans-serif;
 }
 
+.loginBackground {
+    background-image: linear-gradient(rgb(23, 58, 86), black);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    overflow: hidden;
+}
+
 .loginSection {
     color: white;
+    background-color: white;
     margin: auto;
-    margin-top: 300px;
+    margin-top: 120px;
     width: 50%;
     height: 50%;
-    border: 20px solid black;
+    box-shadow: 12px 12px 2px 1px rgba(129, 140, 245, 0.2);
+    padding-bottom: 100px;
+    padding-top: 100px;
+
 }
 
 input {
-    width: 50%;
-    height: 50%;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    align-self: center;
+    display: block;
     text-align: center;
     margin: auto;
 }
