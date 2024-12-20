@@ -1,10 +1,33 @@
 h2 {
     font-size: 20px;
     text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
 
 }
 
 h1 {
     font-size: 50px;
     text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.loginSection {
+    color: white;
+    margin: auto;
+    margin-top: 300px;
+    width: 50%;
+    height: 50%;
+    border: 20px solid black;
+}
+
+input {
+    width: 50%;
+    height: 50%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    align-self: center;
+    text-align: center;
+    margin: auto;
 }
