@@ -46,19 +46,6 @@ const StartingPage = () => {
       </div> {/* closing div for the text */}
 
       </div> {/* closing div for the background */}
-
-      <div class ="missionSection"> {/* div for the content at the bottom of the page */}
-      
-        <h2>Our Mission</h2> {/* Come back to this and work on this part later */}
-        <p>
-          I want to provide a platform for students to be able to not have to scroll through their syllabi for when homework is due. For that reason 
-          I have created a platform where students can simply upload a copy of their class's syllabus and have a machine learning model make a calendar 
-          for the student over the entire semester. Likewise, there is a feature for the student to clear their homework schedule entirely and start over 
-          without having to create a new account.
-        </p>
-
-        <img></img> 
-      </div> {/* closing div for the content at the bottom of the page */}
     
     </div> /* Closing div for the over-arching div */
   );
