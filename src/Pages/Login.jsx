@@ -21,8 +21,8 @@ export default function Login() {
             <h2>Please enter your information</h2>
 
             <div>
-            <input type="text" placeholder="please enter a username..."></input>
-            <input type="password" placeholder="please enter a password..."></input>
+            <input type="text" placeholder="Username"></input>
+            <input type="password" placeholder="Password"></input>
             <button type="button">Login</button>
             </div>
             

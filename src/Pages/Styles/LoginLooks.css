@@ -11,6 +11,7 @@ h1 {
     text-align: center;
     color: black;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
 }
 
 .loginBackground {
@@ -33,7 +34,14 @@ h1 {
     box-shadow: 12px 12px 2px 1px rgba(129, 140, 245, 0.2);
     padding-bottom: 100px;
     padding-top: 100px;
+}
 
+.loginSection label {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    font-size: 18px;
+    padding: 0 5px;
 }
 
 input {
@@ -45,7 +53,7 @@ input {
     border-radius: 3px;
     background-color: lightgray;
     border: none;
-    border-bottom: 10px gray;
+    border-bottom: 5px solid gray;
     margin-bottom: 25px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -63,7 +71,7 @@ input:focus {
     background-color: white;
     margin-bottom: 25px;
     border:none;
-    border-bottom: 10px blue;
+    border-bottom: 5px solid black;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -75,5 +83,52 @@ button {
     text-align: center;
     font-weight: bold;
     display: block;
+    border: none;
+    width: 52%;
+    height: 52%;
+    border-radius: 999px;
+    background: linear-gradient(45deg, rgb(23, 58, 86), black);
+    color: white;
+    transition: 0.4s ease-out;
+}
 
+button:hover {
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    border: none;
+    width: 52%;
+    height: 52%;
+    border-radius: 999px;
+    background: linear-gradient(45deg, black, rgb(23, 58, 86));
+    color: white;
+    transition: 0.4s ease-out;
+}
+
+button:active {
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    border: none;
+    width: 52%;
+    height: 52%;
+    border-radius: 999px;
+    background: linear-gradient(45deg, white, #001E09);
+    color: black;
+    transition: 0.4s ease-out;
+}
+
+.input-fields label {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    font-size: 18px;
+    padding: 0 5px;
+    margin: auto;
 }
