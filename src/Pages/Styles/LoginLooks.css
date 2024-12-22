@@ -124,6 +124,22 @@ button:active {
     transition: 0.4s ease-out;
 }
 
+button:focus {
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    border: none;
+    width: 52%;
+    height: 52%;
+    border-radius: 999px;
+    background: linear-gradient(45deg, white, #001E09);
+    color: black;
+    transition: 0.4s ease-out;
+}
+
 .input-fields label {
     position: absolute;
     top: 15px;
