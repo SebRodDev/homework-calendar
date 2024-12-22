@@ -38,8 +38,42 @@ h1 {
 
 input {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 40px;
     display: block;
     text-align: center;
     margin: auto;
+    border-radius: 3px;
+    background-color: lightgray;
+    border: none;
+    border-bottom: 10px gray;
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+
+input:focus {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 25px;
+    border:none;
+    border-bottom: 10px blue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+button {
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+
 }

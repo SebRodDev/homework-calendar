@@ -19,8 +19,13 @@ export default function Login() {
             <div class="loginSection">
             <h1>Login</h1>
             <h2>Please enter your information</h2>
+
+            <div>
             <input type="text" placeholder="please enter a username..."></input>
-            <input type="text" placeholder="please enter a password..."></input>
+            <input type="password" placeholder="please enter a password..."></input>
+            <button type="button">Login</button>
+            </div>
+            
             </div>
         </div>
     );  
