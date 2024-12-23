@@ -1,8 +1,12 @@
 import React from 'react';
 import './Styles/LoginLooks.css';
 import { Rainify } from 'rainify';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+
+    let navigate = useNavigate();
+
     return (
         <div class="loginBackground">
             <Rainify /* Just the rain effects from the library that I imported */
@@ -15,6 +19,9 @@ export default function Login() {
                     splashColor='rgba(255, 255, 255, 0.5)'
                     splashDuration={0}>
                   </Rainify>
+
+        <button type="button" class="backButton" onClick={() => navigate("/")}>Back</button>
+
                   
             <div class="loginSection">
             <h1>Login</h1>
@@ -23,7 +30,7 @@ export default function Login() {
             <div>
             <input type="text" placeholder="Username"></input>
             <input type="password" placeholder="Password"></input>
-            <button type="button">Login</button>
+            <button type="button" class="loginButton">Login</button>
             </div>
             
             </div>

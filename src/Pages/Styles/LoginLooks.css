@@ -28,7 +28,7 @@ h1 {
     color: white;
     background-color: white;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 12px;
     width: 50%;
     height: 50%;
     box-shadow: 12px 12px 2px 1px rgba(129, 140, 245, 0.2);
@@ -60,7 +60,6 @@ input {
 
 }
 
-
 input:focus {
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -76,7 +75,7 @@ input:focus {
     padding-bottom: 5px;
 }
 
-button {
+.loginButton {
     margin: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -92,7 +91,7 @@ button {
     transition: 0.4s ease-out;
 }
 
-button:hover {
+.loginButton:hover {
     margin: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -108,7 +107,7 @@ button:hover {
     transition: 0.4s ease-out;
 }
 
-button:active {
+.loginButton:active {
     margin: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -124,7 +123,7 @@ button:active {
     transition: 0.4s ease-out;
 }
 
-button:focus {
+.loginButton:focus {
     margin: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -147,4 +146,60 @@ button:focus {
     font-size: 18px;
     padding: 0 5px;
     margin: auto;
+}
+
+.backButton {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, rgb(23, 58, 86), black);
+    color: white;
+    transition: 1s ease-out;
+}
+
+.backButton:hover {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, black, rgb(23, 58, 86));
+    color: white;
+    transition: 1s ease-out;
+}
+
+.backButton:active {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, white, #001E09);
+    color: black;
+    transition: 1s ease-out;
+}
+
+.backButton:focus {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, white, #001E09);
+    color: black;
+    transition: 1s ease-out;
 }
