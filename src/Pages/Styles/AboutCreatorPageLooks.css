@@ -1,0 +1,77 @@
+.backButton {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, rgb(23, 58, 86), black);
+    color: white;
+    transition: 1s ease-out;
+}
+
+.backButton:hover {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, black, rgb(23, 58, 86));
+    color: white;
+    transition: 1s ease-out;
+}
+
+.backButton:active {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, white, #001E09);
+    color: black;
+    transition: 1s ease-out;
+}
+
+.backButton:focus {
+    width: 130px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    background: linear-gradient(90deg, white, #001E09);
+    color: black;
+    transition: 1s ease-out;
+}
+
+.aboutBackground {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(215deg, rgb(23, 58, 86), black);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.creatorInfoSection {
+    color: white;
+    background-color: white;
+    margin: auto;
+    margin-top: 12px;
+    width: 50%;
+    height: 50%;
+    box-shadow: 12px 12px 2px 1px rgba(129, 140, 245, 0.2);
+    padding-bottom: 200px;
+    padding-top: 10px;
+}
