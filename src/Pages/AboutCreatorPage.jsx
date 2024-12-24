@@ -6,7 +6,7 @@ import './Styles/AboutCreatorPageLooks.css';
 export default function AboutCreatorPage() {
     let navigate = useNavigate();
     return (
-        <div class="aboutBackground">
+        <div className="aboutBackground">
             <Rainify
             isRaining 
             intensity={125}
@@ -20,12 +20,11 @@ export default function AboutCreatorPage() {
 
             <button type="button" class="backButton" onClick={() => navigate("/")}>Back</button>
 
-            <div class="creatorInfoSection">
+            <div className="creatorInfoSection">
                 <h1>About Creator</h1>
                 <h2>Sebastian Rodriguez</h2>
-                <img src="Images/LinkedIn_logo_initials.png" alt="" width="100px" height="100px"></img>
+                <img src="Images/linkedin-logo.png" alt="" width="100px" height="100px" />
             </div>
-
         </div>
     );
 }
