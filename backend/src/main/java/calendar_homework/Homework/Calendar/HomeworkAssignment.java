@@ -1,3 +1,5 @@
+package calendar_homework.Homework.Calendar;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,5 +32,9 @@ public class HomeworkAssignment {
 
     public HomeworkAssignment() {} // empty constructor
 
-    
+    public HomeworkAssignment(String dueDate, String assignmentName, String className) {
+        this.dueDate = dueDate;
+        this.assignmentName = assignmentName;
+        this.className = className;
+    }
 }

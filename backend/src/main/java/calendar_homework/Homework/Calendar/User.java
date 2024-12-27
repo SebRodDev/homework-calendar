@@ -1,3 +1,5 @@
+package calendar_homework.Homework.Calendar;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -25,8 +27,7 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    
-    private List<HomeworkAssignment> homework;    
+    private List<HomeworkAssignment> homework = new ArrayList<>();    
     // There will be another variable for the homework assignments
 
     public User() {} // empty constructor
@@ -62,5 +63,11 @@ public class User {
         this.password = password;
     }
 
+    public List<HomeworkAssignment> getHomework() {
+        return homework;
+    }
 
+    public void setHomework (List<HomeworkAssignment> homework) {
+        this.homework = homework;
+    }
 }
