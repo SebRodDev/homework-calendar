@@ -1,3 +1,4 @@
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,12 +15,17 @@ public class HomeworkAssignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "Due Date", nullable = false)
     private String dueDate;
+    
+    @Column(name = "Assignment Name", nullable = false)
     private String assignmentName;
+    
+    @Column(name = "Class Name", nullable = false)
     private String className;
 
-    @ManyToOne
-    @JoinColumn()
+    @ManyToOne // many homework assignments are assigned to one user 
+    @JoinColumn(name = "user_id")
     private User user;
 
     public HomeworkAssignment() {} // empty constructor

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -17,17 +16,17 @@ public class User {
     // This generates an ID number that is specific to each user meaning that 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     // Do not need to include the id in the constructor since it is automatically generated when an instance of the User class is used
-    @Column(name = "Username", unique = true) // setting unique to true so that only one username can be associated with one account/user
+    @Column(name = "Username", unique = true, nullable = false) // setting unique to true so that only one username can be associated with one account/user
     private String username;
 
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
-
-    private List<HomeworkAssignment> homework = new ArrayList<>();   
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    
+    private List<HomeworkAssignment> homework;    
     // There will be another variable for the homework assignments
 
     public User() {} // empty constructor
