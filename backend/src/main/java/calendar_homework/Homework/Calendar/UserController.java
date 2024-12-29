@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PutMapping;
 
 /*
  * 
@@ -98,11 +98,15 @@ public class UserController {
         Optional<HomeworkAssignment> homeworkOptional = homeworkService.findHomeworkAssignment(assignmentId);
         HomeworkAssignment foundHomework = homeworkOptional.get();
         foundHomework.setCurrentUser(foundCurrentUser);
-        return homeworkService.deleteHomeworkAssignment(foundHomework.getID()) ? ResponseEntity.ok("Assignment 
-        with ID: " + foundHomework.getID() " successfully deleted!") : ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unable " + 
-        "to delete the assignment with the ID: " + foundHomework.getID())
+        Long currentHomeworkID = foundHomework.getID();
+        return homeworkService.deleteHomeworkAssignment(currentHomeworkID) ? ResponseEntity.ok("Assignment with ID: " + currentHomeworkID + " successfully deleted") : 
+        ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete assignment with ID: " + currentHomeworkID);
     }
+
+        return null; // in theory should be an unreachable statement but not sure
     }
+
+    // on the getAllHomeworkAssignments Method
 
     
 }
