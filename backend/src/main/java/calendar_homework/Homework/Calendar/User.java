@@ -18,7 +18,7 @@ public class User {
     // This generates an ID number that is specific to each user meaning that 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     // Do not need to include the id in the constructor since it is automatically generated when an instance of the User class is used
     @Column(name = "Username", unique = true, nullable = false) // setting unique to true so that only one username can be associated with one account/user
     private String username;

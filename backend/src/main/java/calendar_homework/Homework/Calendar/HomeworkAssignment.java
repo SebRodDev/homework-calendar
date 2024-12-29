@@ -15,7 +15,7 @@ public class HomeworkAssignment {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "Due Date", nullable = false)
     private String dueDate;
@@ -38,11 +38,11 @@ public class HomeworkAssignment {
         this.className = className;
     }
 
-    public long getID() {
+    public Long getID() {
         return id;
     }
 
-    public void setID(long id) {
+    public void setID(Long id) {
         this.id = id;
     }
 
@@ -68,5 +68,13 @@ public class HomeworkAssignment {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public User getAssociatedUser() {
+        return user;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.user = currentUser;
     }
 }
