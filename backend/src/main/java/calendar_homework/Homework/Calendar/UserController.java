@@ -76,14 +76,32 @@ public class UserController {
     @PostMapping("/{userId}/assignments")
     public ResponseEntity<HomeworkAssignment> addHomeworkAssignment(@PathVariable Long userId, 
     @RequestBody HomeworkAssignment homework) {
-     User obtainedUser = userService.findUserByID(userId);
+     Optional<User> obtainedUserOptional = userService.findUserByID(userId);
+
+     if (!obtainedUserOptional.isEmpty()) {
+        User obtainedUser = obtainedUserOptional.get();
+        homework.setCurrentUser(obtainedUser);
+        HomeworkAssignment finalAssignment = homeworkService.addHomeworkAssignment(homework);
+        return ResponseEntity.ok(finalAssignment);
+     } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+     }
+     
     }
 
     @DeleteMapping("/{userId}/{homeworkId}")
     public ResponseEntity<String> deleteHomeworkAssignment(@PathVariable Long userId, @PathVariable 
     Long assignmentId) {
-    return homeworkService.deleteHomeworkAssignment(assignmentId)
-    
+    Optional<User> userOptional = userService.findUserByID(userId);
+    if (!userOptional.isEmpty()) {
+        User foundCurrentUser = userOptional.get();
+        Optional<HomeworkAssignment> homeworkOptional = homeworkService.findHomeworkAssignment(assignmentId);
+        HomeworkAssignment foundHomework = homeworkOptional.get();
+        foundHomework.setCurrentUser(foundCurrentUser);
+        return homeworkService.deleteHomeworkAssignment(foundHomework.getID()) ? ResponseEntity.ok("Assignment 
+        with ID: " + foundHomework.getID() " successfully deleted!") : ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unable " + 
+        "to delete the assignment with the ID: " + foundHomework.getID())
+    }
     }
 
     
