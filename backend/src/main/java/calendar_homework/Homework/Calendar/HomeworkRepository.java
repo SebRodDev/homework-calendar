@@ -1,4 +1,7 @@
 package calendar_homework.Homework.Calendar;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 /*
@@ -8,4 +11,7 @@ import org.springframework.stereotype.Repository;
  * 
  */
 @Repository
-public interface HomeworkRepository extends JpaRepository<HomeworkAssignment, Long> {}
+public interface HomeworkRepository extends JpaRepository<HomeworkAssignment, Long> {
+    List<HomeworkAssignment> findByUserId(Long userId);
+    Optional<HomeworkAssignment> findByIdAndUserId(Long assignmentId, Long userId);
+}

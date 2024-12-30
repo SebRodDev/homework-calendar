@@ -76,37 +76,29 @@ public class UserController {
     @PostMapping("/{userId}/assignments")
     public ResponseEntity<HomeworkAssignment> addHomeworkAssignment(@PathVariable Long userId, 
     @RequestBody HomeworkAssignment homework) {
-     Optional<User> obtainedUserOptional = userService.findUserByID(userId);
-
-     if (!obtainedUserOptional.isEmpty()) {
-        User obtainedUser = obtainedUserOptional.get();
-        homework.setCurrentUser(obtainedUser);
-        HomeworkAssignment finalAssignment = homeworkService.addHomeworkAssignment(homework);
-        return ResponseEntity.ok(finalAssignment);
-     } else {
+     HomeworkAssignment finalAssignment = homeworkService.addHomeworkAssignment(userId, homework);
+     if (finalAssignment == null) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+     } else {
+        return ResponseEntity.ok(finalAssignment);
      }
-     
     }
 
     @DeleteMapping("/{userId}/{homeworkId}")
-    public ResponseEntity<String> deleteHomeworkAssignment(@PathVariable Long userId, @PathVariable 
+    public ResponseEntity<String> deleteHomeworkAssignment(@PathVariable 
     Long assignmentId) {
-    Optional<User> userOptional = userService.findUserByID(userId);
-    if (!userOptional.isEmpty()) {
-        User foundCurrentUser = userOptional.get();
-        Optional<HomeworkAssignment> homeworkOptional = homeworkService.findHomeworkAssignment(assignmentId);
-        HomeworkAssignment foundHomework = homeworkOptional.get();
-        foundHomework.setCurrentUser(foundCurrentUser);
-        Long currentHomeworkID = foundHomework.getID();
-        return homeworkService.deleteHomeworkAssignment(currentHomeworkID) ? ResponseEntity.ok("Assignment with ID: " + currentHomeworkID + " successfully deleted") : 
-        ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete assignment with ID: " + currentHomeworkID);
+        return homeworkService.deleteHomeworkAssignment(assignmentId) ? ResponseEntity.ok("Assignment with ID: " + assignmentId + "deleted!") :
+        ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No assignment exists with the ID: " + assignmentId);
     }
 
-        return null; // in theory should be an unreachable statement but not sure
+    @GetMapping("/user/assignments/{userId}")
+    public ResponseEntity<List<HomeworkAssignment>> findHomeworkAssignmentsByUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(homeworkService.findHomeworkAssignmentByUser(userId));
     }
 
-    // on the getAllHomeworkAssignments Method
-
+    @GetMapping("/user/assignments/{userId}/{assignmentId}")
+    public ResponseEntity<HomeworkAssignment> findSpecificHomeworkAssignment(@PathVariable Long userId, @PathVariable Long assignmentId) {
+        Optional<HomeworkAssignment> foundHomeworkAssignment = homeworkService.findSpecificHomeworkAssigment(userId, assignmentId);
+    }
     
 }

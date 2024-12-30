@@ -8,18 +8,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class HomeworkService {
    private final HomeworkRepository homeworkRepository;
+   private final UserRepository userRepository;
    
    @Autowired
-   public HomeworkService(HomeworkRepository homeworkRepository) {
+   public HomeworkService(HomeworkRepository homeworkRepository, UserRepository userRepository) {
     this.homeworkRepository = homeworkRepository;
+    this.userRepository = userRepository;
    }
 
-   public HomeworkAssignment addHomeworkAssignment(HomeworkAssignment homework) {
+   public HomeworkAssignment addHomeworkAssignment(Long userId, HomeworkAssignment homework) {
     if (homework.getAssignmentName() == null || homework.getClassName() == null || 
             homework.getDueDate() == null) {
         return null; 
     }
-
+    Optional<User> foundUserOptional = userRepository.findById(userId);
+    User foundUser = foundUserOptional.get();
+    homework.setCurrentUser(foundUser);
     return homeworkRepository.save(homework);
    }
 
@@ -32,15 +36,19 @@ public class HomeworkService {
     }
    }
 
-   public List<HomeworkAssignment> getAllHomeworkAssignments() {
-    return homeworkRepository.findAll();
+   public List<HomeworkAssignment> findHomeworkAssignmentByUser(Long userId) {
+    try {
+        return homeworkRepository.findByUserId(userId);
+    } catch (Exception e) {
+        throw new RuntimeException("Unable to find a user with the ID: " + userId);
+    }
    }
 
-   public Optional<HomeworkAssignment> findHomeworkAssignment(Long id) {
+   public Optional<HomeworkAssignment> findSpecificHomeworkAssignment(Long userId, Long assignmentId) {
     try {
-        return homeworkRepository.findById(id);
+        return homeworkRepository.findByIdAndUserId(assignmentId, userId);
     } catch (Exception e) {
-        throw new RuntimeException("Unable to find a homework assignment with the ID: " + id);
+        throw new RuntimeException("Unable to find a homework assignment with the ID: " + assignmentId);
     }
    }
 
