@@ -52,9 +52,9 @@ public class HomeworkService {
     }
    }
 
-   public Optional<HomeworkAssignment> updateHomeworkAssignment(Long id, HomeworkAssignment updatedHomework) {
+   public Optional<HomeworkAssignment> updateHomeworkAssignment(Long userId, Long assignmentId, HomeworkAssignment updatedHomework) {
     try {
-        Optional<HomeworkAssignment> foundAssignments = homeworkRepository.findById(id);
+        Optional<HomeworkAssignment> foundAssignments = homeworkRepository.findByIdAndUserId(assignmentId, userId);
         if (!foundAssignments.isEmpty()) {
             HomeworkAssignment currentAssignment = foundAssignments.get(); // getting the assignment that was found to match the ID
             currentAssignment.setAssignmentName(updatedHomework.getAssignmentName());
@@ -64,7 +64,7 @@ public class HomeworkService {
             return Optional.of(finalUpdatedAssignment);
         }
     } catch (Exception e) {
-        throw new RuntimeException("Unable to find a homework assignment with the ID: " + id + " provided.");
+        throw new RuntimeException("Unable to find a homework assignment with the ID: " + assignmentId + " provided.");
     }
 
     return Optional.empty(); // return empty if nothing was found - the change could not be made

@@ -98,7 +98,15 @@ public class UserController {
 
     @GetMapping("/user/assignments/{userId}/{assignmentId}")
     public ResponseEntity<HomeworkAssignment> findSpecificHomeworkAssignment(@PathVariable Long userId, @PathVariable Long assignmentId) {
-        Optional<HomeworkAssignment> foundHomeworkAssignment = homeworkService.findSpecificHomeworkAssigment(userId, assignmentId);
+        Optional<HomeworkAssignment> foundHomeworkAssignment = homeworkService.findSpecificHomeworkAssignment(userId, assignmentId);
+        return foundHomeworkAssignment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/user/assignments/change/{userid}/{assignmentId}")
+    public ResponseEntity<HomeworkAssignment> updateHomeworkAssignment(@PathVariable Long userId, @PathVariable Long assignmentId, 
+    @RequestBody HomeworkAssignment newHomeworkInfo) {
+        Optional<HomeworkAssignment> updatedAssignment = homeworkService.updateHomeworkAssignment(userId, assignmentId, newHomeworkInfo);
+        return updatedAssignment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
     
 }
