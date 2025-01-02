@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 
  */
 @RestController // central artifact in the RESTful API
-@RequestMapping("/api/user") // this is the api call that we use to call the backend from the frontend I believe
+@RequestMapping("/api/users") // this is the api call that we use to call the backend from the frontend I believe
 public class UserController {
 
     private final UserService userService;
