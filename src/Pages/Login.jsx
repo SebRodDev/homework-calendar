@@ -2,10 +2,19 @@ import React from 'react';
 import './Styles/LoginLooks.css';
 import { Rainify } from 'rainify';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     let navigate = useNavigate();
+
+    const login = ((e) => {
+        e.preventDefault();
+
+        
+    });
 
     return (
         <div class="loginBackground">

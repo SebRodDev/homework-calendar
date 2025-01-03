@@ -32,9 +32,9 @@ public class UserService {
         return false;
     }
 
-    public Optional<User> findUserByUsername(String username) {
+    public Optional<User> findUserByUsername(String username, String password) {
         try {
-        return userRepository.findByUsername(username);
+        return userRepository.findByUsernameAndPassword(username, password);
         } catch (Exception e) {
             throw new RuntimeException("Unable to find a user with the username: " + username);
         }

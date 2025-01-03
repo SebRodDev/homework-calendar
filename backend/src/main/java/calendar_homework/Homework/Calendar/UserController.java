@@ -62,8 +62,8 @@ public class UserController {
     }
 
     @GetMapping("/find/user")
-    public ResponseEntity<User> findUserByUsername(@RequestBody String searchedUsername) {
-        Optional<User> foundUserOptional = userService.findUserByUsername(searchedUsername);
+    public ResponseEntity<User> findUserByUsername(@RequestBody String searchedUsername, @RequestBody String searchedPassword) {
+        Optional<User> foundUserOptional = userService.findUserByUsername(searchedUsername, searchedPassword);
         User foundUser = foundUserOptional.get();
         return ResponseEntity.ok(foundUser);
     }
