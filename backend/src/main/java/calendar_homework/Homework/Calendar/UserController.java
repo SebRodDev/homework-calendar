@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController // central artifact in the RESTful API
 @RequestMapping("/api/users") // this is the api call that we use to call the backend from the frontend I believe
+@CrossOrigin(origins = { "*" })
 public class UserController {
 
     private final UserService userService;
@@ -57,6 +59,13 @@ public class UserController {
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/find/user")
+    public ResponseEntity<User> findUserByUsername(@RequestBody String searchedUsername) {
+        Optional<User> foundUserOptional = userService.findUserByUsername(searchedUsername);
+        User foundUser = foundUserOptional.get();
+        return ResponseEntity.ok(foundUser);
     }
 
     @GetMapping("/user/{id}")

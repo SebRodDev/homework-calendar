@@ -16,7 +16,7 @@ public class UserService {
     }
 
     public User createUser(User newUser) { // method to create a user
-        if (newUser.getUsername().equals(null) || newUser.getPassword().equals(null)) {
+        if (newUser.getUsername() == null || newUser.getPassword() == null) {
             return null; // returning null if the user was unable to be created
         }
 
@@ -30,6 +30,15 @@ public class UserService {
         }
 
         return false;
+    }
+
+    public Optional<User> findUserByUsername(String username) {
+        try {
+        return userRepository.findByUsername(username);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to find a user with the username: " + username);
+        }
+
     }
 
     public List<User> getAllUsers() {
