@@ -48,7 +48,7 @@ public class UserController {
     }
 
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/delete/user/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
     return userService.deleteUser(id) ? ResponseEntity.ok("User with ID: " + id + " successfully deleted") : 
         ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete user with ID: " + id);
@@ -65,7 +65,7 @@ public class UserController {
         return foundUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping(path = "/user/{userId}")
+    @PutMapping(path = "/update/user/{id}")
     public ResponseEntity<User> updateUserInfo(@PathVariable Long id, @RequestBody User newUserInfo) {
         Optional<User> updatedUserInfo = userService.updateUserInfo(id, newUserInfo);
         return updatedUserInfo.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -73,7 +73,7 @@ public class UserController {
 
     // ------------ Homework Section -----------------
 
-    @PostMapping("/{userId}/assignments")
+    @PostMapping("/assignments/{userId}")
     public ResponseEntity<HomeworkAssignment> addHomeworkAssignment(@PathVariable Long userId, 
     @RequestBody HomeworkAssignment homework) {
      HomeworkAssignment finalAssignment = homeworkService.addHomeworkAssignment(userId, homework);
@@ -84,7 +84,7 @@ public class UserController {
      }
     }
 
-    @DeleteMapping("/{userId}/{homeworkId}")
+    @DeleteMapping("/delete/assignment/{assignmentId}")
     public ResponseEntity<String> deleteHomeworkAssignment(@PathVariable 
     Long assignmentId) {
         return homeworkService.deleteHomeworkAssignment(assignmentId) ? ResponseEntity.ok("Assignment with ID: " + assignmentId + "deleted!") :

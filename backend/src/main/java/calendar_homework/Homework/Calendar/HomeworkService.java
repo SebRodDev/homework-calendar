@@ -17,9 +17,11 @@ public class HomeworkService {
    }
 
    public HomeworkAssignment addHomeworkAssignment(Long userId, HomeworkAssignment homework) {
-    if (homework.getAssignmentName() == null || homework.getClassName() == null || 
-            homework.getDueDate() == null) {
-        return null; 
+    if (homework.getAssignmentName() == null || homework.getDueDate() == null || homework.getClassName() == null) {
+        System.out.println("This is the assignment name " + homework.getAssignmentName());
+        System.out.println("This is the due date " + homework.getDueDate());
+        System.out.println("This is the class name " + homework.getClassName());
+        return null;
     }
     Optional<User> foundUserOptional = userRepository.findById(userId);
     User foundUser = foundUserOptional.get();
