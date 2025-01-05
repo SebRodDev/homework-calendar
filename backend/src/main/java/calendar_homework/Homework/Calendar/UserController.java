@@ -61,11 +61,15 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/find/user")
-    public ResponseEntity<User> findUserByUsername(@RequestBody String searchedUsername, @RequestBody String searchedPassword) {
-        Optional<User> foundUserOptional = userService.findUserByUsername(searchedUsername, searchedPassword);
+    @PostMapping("/login/user")
+    public ResponseEntity<User> findUserByUsername(@RequestBody LoginRequest loginRequest) {
+        Optional<User> foundUserOptional = userService.findUserByUsername(loginRequest.getUsername(), loginRequest.getPassword());
         User foundUser = foundUserOptional.get();
+        if (foundUser == null) {
+            return ResponseEntity.notFound().build();
+        } else {
         return ResponseEntity.ok(foundUser);
+        }
     }
 
     @GetMapping("/user/{id}")

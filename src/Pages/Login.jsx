@@ -3,6 +3,7 @@ import './Styles/LoginLooks.css';
 import { Rainify } from 'rainify';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -10,10 +11,33 @@ export default function Login() {
 
     let navigate = useNavigate();
 
-    const login = ((e) => {
+    const login = (async (e) => {
         e.preventDefault();
 
-        
+        if (!username || !password) {
+            alert("No username or password was provided! Please ensure everything is filled out.")
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:8080/api/users/login/user', { username, password });
+            if (response == null) {
+                return (
+                    <div>
+                        <h3>WARNING!</h3>
+                        <h4>The information provided is incorrect. Please try again.</h4>
+                    </div>
+                );
+            } else {
+            return (<div>
+                <h3>Homework Calendar</h3>
+                <h4>Account successfully created redirecting...</h4>
+                navigate("/homeworkCalendar");
+            </div>);
+            }
+        } catch (error) {
+            alert("Error logging in: ", error);
+        }
     });
 
     return (
@@ -37,9 +61,19 @@ export default function Login() {
             <h2>Please enter your information</h2>
 
             <div>
-            <input type="text" placeholder="Username"></input>
-            <input type="password" placeholder="Password"></input>
-            <button type="button" class="loginButton">Login</button>
+            <input 
+            type="text" 
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}>
+            </input>
+            <input 
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}>
+            </input>
+            <button type="button" class="loginButton" onClick={login}>Login</button>
             </div>
             
             </div>
