@@ -21,7 +21,7 @@
     overflow-x: hidden;
 }
 
-h1 {
+.platformName {
     margin: 0 auto;
     font-family: 'wakuwaku';
     color: #8789E8;
@@ -29,4 +29,14 @@ h1 {
     margin-top: 20px;
     text-align: left;
     margin-left: 20px;
+}
+
+.instructions {
+    float: right;
+    width: 50vw;
+    margin-right: 20px;
+    margin-top: 30px;
+    font-family: 'wakuwaku';
+    color: #87B3E8;
+    border: 5px solid white;
 }
