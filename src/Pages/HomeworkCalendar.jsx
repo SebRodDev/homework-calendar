@@ -6,7 +6,7 @@ export default function HomeworkCalendar() {
     const { userUsername } = useParams();
     return (
         <div class="homeworkBackground">
-            <div>
+            <div class="instructionsContainer">
                 <p class="instructions">Two options of creating the homework calendar:
                     <br />
                     <br />1. Manually input all homework dates to create the homework calendar 
@@ -15,6 +15,8 @@ export default function HomeworkCalendar() {
             </div>
             <h1 class="platformName">Homework Calendar</h1>
             <h2 class="title">Welcome back {userUsername}!</h2>
+            <button type="button" class="homeworkCreation">Manual Input</button>
+            <button type="button" class="homeworkCreation">Upload Syllabus</button>
         </div>
     )
 }

@@ -34,9 +34,43 @@
 .instructions {
     float: right;
     width: 50vw;
-    margin-right: 20px;
-    margin-top: 30px;
+    height: 15vh;
+    margin-right: 25px;
+    margin-top: 20px;
     font-family: 'wakuwaku';
-    color: #87B3E8;
-    border: 5px solid white;
+    color: #E8B487;
+    border: 5px solid #2D2D2D;
+    padding-bottom: 0;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 30px;
+    background-color: #2D2D2D;
+}
+
+.instructionsContainer {
+    padding-bottom: 0;
+}
+
+.homeworkCreation {
+    font-family: 'wakuwaku';
+    background-color: #090808;
+    color: #A4A4A4;
+    border: 2px solid #8789E8;
+    padding: 30px;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    border-radius: 20px;
+}
+
+.homeworkCreation:hover {
+    border: 2px solid #E8B487;
+}
+
+.homeworkCreation:active {
+    background: linear-gradient(to left, #87B3E8, #A4A5E8);
+    color: black;
+    border: 2px solid transparent; /* Just a transparent border since you cannot directly apply linear-gradient to a border */
 }
