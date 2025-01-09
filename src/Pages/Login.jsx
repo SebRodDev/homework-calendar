@@ -20,17 +20,18 @@ export default function Login() {
         }
 
         setLoggingIn(true);
-        console.log("This is whatever the login status is: ", true);
 
         try {
-        await axios.post('http://localhost:8080/api/users/login/user', { username, password });
-        navigate("/homeworkCalendar");
+        const userInformation = await axios.post('http://localhost:8080/api/users/login/user', { username, password });
+        const userUsername = userInformation.data.username;
+        const userId = userInformation.data.id;
+        navigate(`/homeworkCalendar/${userUsername}/${userId}`);
         } catch (error) {
             setLoggingIn(false);
-            console.log("This is whatever the login status is: ", false);
             alert("Error logging in: Incorrect username or password!");
         }
     });
+
 
     return (
         <div class="loginBackground">

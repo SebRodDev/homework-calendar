@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'wakuwaku';
+    src: url("/src/Pages/Images/mini-wakuwaku.otf");
+}
+
+.title {
+    font-family: 'wakuwaku';
+    font-size: 50px;
+}
