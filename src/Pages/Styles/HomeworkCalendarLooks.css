@@ -6,4 +6,27 @@
 .title {
     font-family: 'wakuwaku';
     font-size: 50px;
+    color: #87B3E8;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.homeworkBackground {
+    background-color: #0e191b;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin: 0 auto;
+    font-family: 'wakuwaku';
+    color: #8789E8;
+    text-shadow: 2px 0 white, 0 2px white, -2px 0 white, 0 -2px white;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 20px;
 }
