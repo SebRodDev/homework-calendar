@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./Styles/HomeworkCalendarLooks.css";
+import AddWindow from "./AddingAssignmentWindow";
 
 export default function HomeworkCalendar() {
     const { userUsername } = useParams();
+    const [addWindow, showAddWindow] = useState(false);
+
+    const openAddWindow = () => {
+        showAddWindow(!addWindow);
+    }
+
     return (
         <div class="homeworkBackground">
             <div class="instructionsContainer">
@@ -15,7 +22,8 @@ export default function HomeworkCalendar() {
             </div>
             <h1 class="platformName">Homework Calendar</h1>
             <h2 class="title">Welcome back {userUsername}!</h2>
-            <button type="button" class="homeworkCreation">Manual Input</button>
+            <button type="button" class="homeworkCreation" onClick={openAddWindow}>Manual Input</button>
+            {addWindow && <AddWindow />}
             <button type="button" class="homeworkCreation">Upload Syllabus</button>
         </div>
     )
