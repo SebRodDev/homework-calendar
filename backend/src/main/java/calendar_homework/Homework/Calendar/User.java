@@ -26,10 +26,8 @@ public class User {
     @Column(name = "Password", nullable = false)
     private String password;
 
-    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<HomeworkAssignment> homework;
-    // There will be another variable for the homework assignments
 
     public User() {} // empty constructor
 
