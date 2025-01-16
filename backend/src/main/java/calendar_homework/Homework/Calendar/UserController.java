@@ -41,7 +41,7 @@ public class UserController {
         this.userService = userService;
         this.homeworkService = homeworkService;
     }
-    
+
     @PostMapping("/user") // used to indicate that this will handle HTTP requests and return the response as a JSON file
     public ResponseEntity<User> createUser(@RequestBody User user) { // the RequestBody annotation is used to bind the HTTP request to a parameter in a controller method
         // basically says that the information that the client will send data alongside their request body

@@ -1,7 +1,6 @@
 package calendar_homework.Homework.Calendar;
 import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,11 +9,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.*;
 
 @Entity
 @Table(name = "user")
 public class User {
-    
+
     // This generates an ID number that is specific to each user meaning that 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<HomeworkAssignment> homework = new ArrayList<>();    
+    private List<HomeworkAssignment> homework = new ArrayList<>();
     // There will be another variable for the homework assignments
 
     public User() {} // empty constructor

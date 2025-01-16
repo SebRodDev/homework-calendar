@@ -1,7 +1,7 @@
 package calendar_homework.Homework.Calendar;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,24 +13,24 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "assignments")
+@JsonIgnoreProperties(value = {"user.password", "user.homework"})
 public class HomeworkAssignment {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "Due Date", nullable = false)
     private String dueDate;
-    
+
     @Column(name = "Assignment Name", nullable = false)
     private String assignmentName;
-    
+
     @Column(name = "Class Name", nullable = false)
     private String className;
 
-    @ManyToOne // many homework assignments are assigned to one user 
+    @ManyToOne // many homework assignments are assigned to one user
     @JoinColumn(name = "user_id")
-    @JsonIgnore // The user field will be ignored during serialization 
     private User user;
 
     public HomeworkAssignment() {} // empty constructor

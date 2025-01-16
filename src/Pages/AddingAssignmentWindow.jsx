@@ -1,11 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
 import './Styles/AddingAssignmentWindowLooks.css';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function AddingAssignmentWindow() {
     const [dueDate, setDueDate] = useState("");
     const [assignmentName, setAssignmentName] = useState("");
     const [className, setClassName] = useState("");
+    const { userId } = useParams();
+
+    const addAssignment = () => {
+        if (!dueDate || !assignmentName || !className) {
+            alert("Error! Please make sure that all fields are properly filled out to create an assignment");
+            return;
+
+            try {
+                await axios.post(`http://localhost:8080/api/users/assignments/${userId}`, { });
+            } catch (error) {
+                alert("Error creating an assignment, please try again!");
+            }
+        }
+    }
 
     return (
         <div class="windowBackground">

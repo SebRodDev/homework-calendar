@@ -36,7 +36,7 @@ export default function Login() {
     return (
         <div class="loginBackground">
             <Rainify /* Just the rain effects from the library that I imported */
-                    isRaining 
+                    isRaining
                     intensity={125}
                     color='rgba(255, 255, 255, 0.5)'
                     zIndex={0}
@@ -48,19 +48,18 @@ export default function Login() {
 
         <button type="button" class="backButton" onClick={() => navigate("/")}>Back</button>
 
-                  
             <div class="loginSection">
             <h1>Login</h1>
             <h2>Please enter your information</h2>
 
             <div>
-            <input 
-            type="text" 
+            <input
+            type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}>
             </input>
-            <input 
+            <input
             type="password"
             placeholder="Password"
             value={password}
@@ -69,8 +68,7 @@ export default function Login() {
             <button type="button" class="loginButton" onClick={(e) => Login(e)}>Login</button>
            )}
             </div>
-            
             </div>
         </div>
-    );  
+    );
 }
