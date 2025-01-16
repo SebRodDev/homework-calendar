@@ -17,21 +17,21 @@ export default function CreateAccountPage() {
 
         if (!username || !password) {
             setError(true);
-            return; 
+            return;
         }
 
         try {
             await axios.post('http://localhost:8080/api/users/user', { username, password });
             alert('Account was created successfully'); // acts like a JOptionPane in Java
         } catch(error) {
-            alert('Error creating account: ' + error); // JOptionPane basically 
+            alert('Error creating account: ' + error); // JOptionPane basically
         }
     });
 
     return (
         <div class="createBackground">
-            <Rainify 
-            isRaining 
+            <Rainify
+            isRaining
             intensity={125}
             color='rgba(255, 255, 255, 0.5)'
             zIndex={0}
@@ -49,16 +49,16 @@ export default function CreateAccountPage() {
 
             <div class="informationArea">
             <h1>Create Account</h1>
-            <h2>Please input information to create an account</h2>
+            <h2>Please input information</h2>
             <input
-             type="text" 
+             type="text"
              placeholder="New Username"
              value={username}
              onChange={(e) => setUsername(e.target.value)}>
              </input>
             <input type="text" placeholder="Full Name"></input>
-            <input 
-             type="password" 
+            <input
+             type="password"
              placeholder="New Password"
              value={password}
              onChange={(e) => setPassword(e.target.value)}>

@@ -67,18 +67,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}>
             </input>
             <button type="button" class="loginButton" onClick={(e) => Login(e)}>Login</button>
-
-            {loggingIn ? (
-                <div>
-                    <h3>Homework Calendar</h3>
-                    <h4>Successfully logged in. Redirecting...</h4>
-                </div>
-            ) : (
-                <div>
-                    <h3>Incorrect Information</h3>
-                    <h4>Please make sure the information provided is correct</h4>
-                </div>
-            )}
+           )}
             </div>
             
             </div>
