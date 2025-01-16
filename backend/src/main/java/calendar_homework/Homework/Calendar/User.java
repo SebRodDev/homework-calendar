@@ -9,13 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user")
 public class User {
 
-    // This generates an ID number that is specific to each user meaning that 
+    // This generates an ID number that is specific to each user meaning that
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,8 +26,9 @@ public class User {
     @Column(name = "Password", nullable = false)
     private String password;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<HomeworkAssignment> homework = new ArrayList<>();
+    private List<HomeworkAssignment> homework;
     // There will be another variable for the homework assignments
 
     public User() {} // empty constructor

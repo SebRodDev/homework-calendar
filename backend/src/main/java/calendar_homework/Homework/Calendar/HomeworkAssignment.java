@@ -1,7 +1,7 @@
 package calendar_homework.Homework.Calendar;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "assignments")
-@JsonIgnoreProperties(value = {"user.password", "user.homework"})
 public class HomeworkAssignment {
 
     @Id
@@ -29,6 +28,7 @@ public class HomeworkAssignment {
     @Column(name = "Class Name", nullable = false)
     private String className;
 
+    @JsonBackReference
     @ManyToOne // many homework assignments are assigned to one user
     @JoinColumn(name = "user_id")
     private User user;
