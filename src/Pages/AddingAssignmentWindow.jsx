@@ -9,6 +9,11 @@ export default function AddingAssignmentWindow() {
     const [assignmentName, setAssignmentName] = useState("");
     const [className, setClassName] = useState("");
     const { userId } = useParams();
+    const [showScreen, setShowScreen] = useState(true);
+
+    if (!showScreen) {
+        return null;
+    }
 
     async function addAssignment() {
         if (!dueDate || !assignmentName || !className) {
@@ -46,7 +51,7 @@ export default function AddingAssignmentWindow() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}>
             </input>
-            <button type="button" class="createAssignmentButton" onClick={addAssignment}>Create Assignment</button>
+            <button type="button" class="createAssignmentButton" onClick={() => {addAssignment(); setShowScreen(false);}}>Create Assignment</button>
         </div>
     </div>
     )
