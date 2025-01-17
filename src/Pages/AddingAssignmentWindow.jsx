@@ -16,7 +16,7 @@ export default function AddingAssignmentWindow() {
             return;
 
             try {
-                await axios.post(`http://localhost:8080/api/users/assignments/${userId}`, { });
+                axios.post(`http://localhost:8080/api/users/assignments/${userId}`, { dueDate, assignmentName, className });
             } catch (error) {
                 alert("Error creating an assignment, please try again!");
             }
@@ -24,8 +24,10 @@ export default function AddingAssignmentWindow() {
     }
 
     return (
+
+        <div class="blurredBackground">
         <div class="windowBackground">
-            <h3>Please fill out all of the information below: </h3>
+            <h3 class="instructionText">Please fill out all of the information below: </h3>
             <input
             type="text"
             placeholder="Assignment Name"
@@ -44,6 +46,8 @@ export default function AddingAssignmentWindow() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}>
             </input>
+            <button type="button" class="createAssignmentButton">Create Assignment</button>
         </div>
+    </div>
     )
 }
