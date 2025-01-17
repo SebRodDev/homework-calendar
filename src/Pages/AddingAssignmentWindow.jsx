@@ -10,21 +10,21 @@ export default function AddingAssignmentWindow() {
     const [className, setClassName] = useState("");
     const { userId } = useParams();
 
-    const addAssignment = () => {
+    async function addAssignment() {
         if (!dueDate || !assignmentName || !className) {
-            alert("Error! Please make sure that all fields are properly filled out to create an assignment");
+            alert("Error! Please make sure that all fields are filled out correctly");
             return;
+        }
 
             try {
-                axios.post(`http://localhost:8080/api/users/assignments/${userId}`, { dueDate, assignmentName, className });
+                const response = await axios.post(`http://localhost:8080/api/users/assignments/${userId}`, { userId, dueDate, assignmentName, className });
+                alert("Assignment created successfully!");
             } catch (error) {
                 alert("Error creating an assignment, please try again!");
             }
-        }
     }
 
     return (
-
         <div class="blurredBackground">
         <div class="windowBackground">
             <h3 class="instructionText">Please fill out all of the information below: </h3>
@@ -46,7 +46,7 @@ export default function AddingAssignmentWindow() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}>
             </input>
-            <button type="button" class="createAssignmentButton">Create Assignment</button>
+            <button type="button" class="createAssignmentButton" onClick={addAssignment}>Create Assignment</button>
         </div>
     </div>
     )
